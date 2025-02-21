@@ -3,27 +3,27 @@ const isChromeAIAvailable = typeof chrome !== "undefined" && chrome?.ai;
 
 // Mock translations for development
 const mockTranslations = {
-  en: {
-    es: (text) => `Translated to Spanish: ${text}`,
-    fr: (text) => `Translated to French: ${text}`,
-    pt: (text) => `Translated to Portuguese: ${text}`,
-    ru: (text) => `Translated to Russian: ${text}`,
-    tr: (text) => `Translated to Turkish: ${text}`,
+  English: {
+    Spanish: (text) => `Translated to Spanish: ${text}`,
+    French: (text) => `Translated to French: ${text}`,
+    Portuguese: (text) => `Translated to Portuguese: ${text}`,
+    Russian: (text) => `Translated to Russian: ${text}`,
+    Turkish: (text) => `Translated to Turkish: ${text}`,
   },
-  es: {
-    en: (text) => `Translated to English: ${text}`,
+  Spanish: {
+    English: (text) => `Translated to English: ${text}`,
   },
-  fr: {
-    en: (text) => `Translated to English: ${text}`,
+  French: {
+    English: (text) => `Translated to English: ${text}`,
   },
-  pt: {
-    en: (text) => `Translated to English: ${text}`,
+  Portuguese: {
+    English: (text) => `Translated to English: ${text}`,
   },
-  ru: {
-    en: (text) => `Translated to English: ${text}`,
+  Russian: {
+    English: (text) => `Translated to English: ${text}`,
   },
-  tr: {
-    en: (text) => `Translated to English: ${text}`,
+  Turkish: {
+    English: (text) => `Translated to English: ${text}`,
   },
 };
 
@@ -56,11 +56,11 @@ export const detectLanguage = async (text) => {
       return response.language;
     } catch (error) {
       console.error("Error using Chrome AI Language Detection API:", error);
-      return "en"; // Default to English if detection fails
+      return "English"; // Default to English if detection fails
     }
   } else {
     console.log("Chrome AI Language Detection API not available. Using mock detection.");
-    return "en"; // Default to English
+    return "English"; // Default to English
   }
 };
 

@@ -7,10 +7,10 @@ import { detectLanguage, summarizeText, translateText } from './utils/api';
 const App = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
-  const [detectedLanguage, setDetectedLanguage] = useState('');
+  const [detectedLanguage, setDetectedLanguage] = useState(''); // Default to empty string
   const [summary, setSummary] = useState('');
   const [translatedText, setTranslatedText] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState('es'); // Default to Spanish
+  const [selectedLanguage, setSelectedLanguage] = useState('Spanish'); // Default to Spanish
 
   const handleSend = async () => {
     console.log("Handling send..."); // Debugging log
@@ -30,7 +30,7 @@ const App = () => {
     }
 
     // Summarize if text is > 150 characters and in English
-    if (inputText.length > 150 && detectedLanguage === 'en') {
+    if (inputText.length > 150 && detectedLanguage === 'English') {
       try {
         const summary = await summarizeText(inputText);
         setSummary(summary);
@@ -74,23 +74,34 @@ const App = () => {
 
   return (
     <div className="chat-container">
+      {/* Welcome Message */}
+      <div className="welcome-message">
+        <h1>AI Text Assistant!</h1>
+        <p>Detect languages, summarize and translate instantly with AI.</p>
+      </div>
+
+      {/* Output Area */}
       <OutputArea
         outputText={outputText}
         detectedLanguage={detectedLanguage}
         summary={summary}
         translatedText={translatedText}
       />
+
+      {/* Input Area */}
       <InputArea
         inputText={inputText}
         setInputText={setInputText}
         handleSend={handleSend}
       />
+
+      {/* Action Buttons */}
       <ActionButtons
         selectedLanguage={selectedLanguage}
         setSelectedLanguage={setSelectedLanguage}
         handleTranslate={handleTranslate}
-        handleSummarize={handleSummarize} // Pass the handleSummarize function
-        showSummarize={inputText.length > 150 && detectedLanguage === 'en'} // Show summarize button conditionally
+        handleSummarize={handleSummarize}
+        showSummarize={inputText.length > 150 && detectedLanguage === 'English'} // Show summarize button conditionally
       />
     </div>
   );

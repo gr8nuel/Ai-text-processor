@@ -2,12 +2,12 @@ import React from 'react';
 
 const ActionButtons = ({ selectedLanguage, setSelectedLanguage, handleTranslate, handleSummarize, showSummarize }) => {
   const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'pt', name: 'Portuguese' },
-    { code: 'es', name: 'Spanish' },
-    { code: 'ru', name: 'Russian' },
-    { code: 'tr', name: 'Turkish' },
-    { code: 'fr', name: 'French' },
+    { code: 'English', name: 'English' },
+    { code: 'Spanish', name: 'Spanish' },
+    { code: 'French', name: 'French' },
+    { code: 'Portuguese', name: 'Portuguese' },
+    { code: 'Russian', name: 'Russian' },
+    { code: 'Turkish', name: 'Turkish' },
   ];
 
   return (
